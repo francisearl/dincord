@@ -4,8 +4,9 @@ import { emojify } from 'react-emojione';
 function strToRGB(str) {
   let hash = 0;
   for (let i = 0; i < str.length; i += 1) {
-    hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    hash = str.charCodeAt(i) + ((hash < 5) - hash);
   }
+  // eslint-disable-next-line no-bitwise
   const c = (hash & 0x00FFFFFF)
     .toString(16)
     .toUpperCase();
@@ -13,8 +14,8 @@ function strToRGB(str) {
 }
 
 const Message = (props) => {
-  const { created_at, author, content } = props.message;
-  const time = new Date(created_at).toLocaleTimeString();
+  const { createdAt, author, content } = props.message;
+  const time = new Date(createdAt).toLocaleTimeString();
   return (
     <div className="message-container">
       <i className="author">

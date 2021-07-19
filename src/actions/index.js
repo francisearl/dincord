@@ -1,4 +1,4 @@
-const BASE_URL = 'https://dincord-app.vercel.app';
+const BASE_URL = 'https://dincord.vercel.app';
 
 
 export const FETCH_MESSAGES = 'FETCH_MESSAGES';
